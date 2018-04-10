@@ -1,0 +1,35 @@
+#Created by Samuel Phillips!
+import tkinter
+from tkinter import *
+from tkinter import filedialog
+from tkinter import ttk
+
+#Axed window methods, consolidated w/ openfile method
+#Establish file opening methods
+
+root = Tk()
+root.geometry("1000x500")
+root.resizable(True, True)
+
+#Set textbox dimensions
+author = Text(width=110)
+author.place(x=55,y=55)
+
+#Add open file button
+
+def buttonCallback():
+    root.filename =  filedialog.askopenfilename(initialdir = "/",title = "Select file",filetypes = (("text files","*.txt"),("all files","*.*")))
+    CONTENTS = open(root.filename).readlines()
+    author.insert("1.0", CONTENTS)
+photo = PhotoImage(file="Capture.PNG")
+b = Button(image=photo, command = buttonCallback, height=50, width=50)
+b.place(x=0,y=0)
+
+#Save any changes made to opened file
+
+def saveCallback():
+    
+
+
+mainloop()
+
